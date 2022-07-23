@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ('./partials/head') -%> 
+    <title><%= title %></title>
+</head>
+<body class="container">
+    
+    <%- include ('./partials/header'); -%> 
+    <br>
+    <% if (entries.length) { %>
+        <% entries.forEach(function(entry) { %> 
+            <div class="card">
+                <div class="card-header">
+                  Tarea <%= %> 
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <%= entry.title %>
+                  </h5>
+                  <p class="card-text">
+                    <%= entry.content %> 
+                  </p>
+                  <footer class="blockquote-footer">Written on the date <cite title="Source Title"><%= entry.published %></cite></footer>
+                </div>
+              </div>
+              <br>
+        <% })%> 
+        <% } else { %> 
+            <p>No entries! <a href="./new-entry" class="btn btn-primary">Add One</a></p>
+    <% } %> 
+</body>
+</html>
